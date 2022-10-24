@@ -54,24 +54,19 @@ def Jogo():
                     pygame.display.update()
                     rodada = (rodada % 2) + 1
 
-                    
-                if(tabuleiro[0][0] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[2][2]):
+                if tabuleiro[0][0] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[2][2] and tabuleiro[0][0] != 0:
                     ganhador = tabuleiro[0][0]
-                elif (tabuleiro[0][2] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[2][0]):
+                elif tabuleiro[0][2] == tabuleiro[1][1] and tabuleiro[1][1] == tabuleiro[2][0] and tabuleiro[0][2] != 0:
                     ganhador = tabuleiro[0][2]
                 else:
-                    for c in range(3):
-    
-                        if(tabuleiro[c][0] == tabuleiro[c][1] and tabuleiro[c][1] == tabuleiro[c][2]):
-                            ganhador = tabuleiro[c][0]
-                        elif (tabuleiro[0][c] == tabuleiro[1][c] and tabuleiro[1][c] == tabuleiro[2][c]):
-                            ganhador = tabuleiro[0][c]
-
-                
+                    for cont in range(3):
+                        if tabuleiro[cont][0] == tabuleiro[cont][1] and tabuleiro[cont][1] == tabuleiro[cont][2] and tabuleiro[cont][0] != 0:
+                            ganhador = tabuleiro[cont][0]
+                        elif tabuleiro[0][cont] == tabuleiro[1][cont] and tabuleiro[1][cont] == tabuleiro[2][cont] and tabuleiro[0][cont] != 0:
+                            ganhador = tabuleiro[0][cont]
                     
                 
                 if ganhador != 0:
-                   
                     i = 10
                 i += 1
                 
@@ -142,9 +137,7 @@ while True:
         for event in ev:
             if event.type == pygame.MOUSEBUTTONUP:
                 pos = pygame.mouse.get_pos()
-
                 if ((pos[0] >= 370 and pos[0] <= 430) and (pos[1] >= 310 and pos[1] <= 350)):
                     exit()
                 elif ((pos[0] >= 140 and pos[0] <= 260) and (pos[1] >= 310 and pos[1] <= 350)):
                     Jogo()
-              
